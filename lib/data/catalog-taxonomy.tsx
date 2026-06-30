@@ -762,32 +762,41 @@ const RAW_INDUSTRY_TAXONOMY: ProductCategory[] = [
   },
 ];
 
-export const MATERIAL_TAXONOMY: ProductCategory[] = RAW_MATERIAL_TAXONOMY.map((cat) => ({
-  ...cat,
-  img: cat.img.replace("/images/", "/images/materials/"),
-  subcategories: cat.subcategories.map((sub) => ({
-    ...sub,
-    img: sub.img.replace("/images/", "/images/materials/"),
-  })),
-}));
+export const MATERIAL_TAXONOMY: ProductCategory[] = RAW_MATERIAL_TAXONOMY.map((cat) => {
+  const catImg = cat.img.replace("/images/", "/images/materials/");
+  return {
+    ...cat,
+    img: catImg,
+    subcategories: cat.subcategories.map((sub) => ({
+      ...sub,
+      img: catImg, // Inherit parent category image
+    })),
+  };
+});
 
-export const STYLE_TAXONOMY: ProductCategory[] = RAW_STYLE_TAXONOMY.map((cat) => ({
-  ...cat,
-  img: cat.img.replace("/images/", "/images/styles/"),
-  subcategories: cat.subcategories.map((sub) => ({
-    ...sub,
-    img: sub.img.replace("/images/", "/images/styles/"),
-  })),
-}));
+export const STYLE_TAXONOMY: ProductCategory[] = RAW_STYLE_TAXONOMY.map((cat) => {
+  const catImg = cat.img.replace("/images/", "/images/styles/");
+  return {
+    ...cat,
+    img: catImg,
+    subcategories: cat.subcategories.map((sub) => ({
+      ...sub,
+      img: catImg, // Inherit parent category image
+    })),
+  };
+});
 
-export const INDUSTRY_TAXONOMY: ProductCategory[] = RAW_INDUSTRY_TAXONOMY.map((cat) => ({
-  ...cat,
-  img: cat.img.replace("/images/", "/images/industries/"),
-  subcategories: cat.subcategories.map((sub) => ({
-    ...sub,
-    img: sub.img.replace("/images/", "/images/industries/"),
-  })),
-}));
+export const INDUSTRY_TAXONOMY: ProductCategory[] = RAW_INDUSTRY_TAXONOMY.map((cat) => {
+  const catImg = cat.img.replace("/images/", "/images/industries/");
+  return {
+    ...cat,
+    img: catImg,
+    subcategories: cat.subcategories.map((sub) => ({
+      ...sub,
+      img: catImg, // Inherit parent category image
+    })),
+  };
+});
 
 /* ─── Lookup helpers ────────────────────────────────── */
 

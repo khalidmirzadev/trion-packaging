@@ -43,7 +43,7 @@ const IMG = {
 /* ═══════════════════════════════════════════════════════════════════
    PRODUCT CATEGORY TAXONOMY
 ═══════════════════════════════════════════════════════════════════ */
-export const PRODUCT_TAXONOMY: ProductCategory[] = [
+const RAW_PRODUCT_TAXONOMY: ProductCategory[] = [
 
   /* ── Core structural categories ─────────────────────────────── */
   {
@@ -290,6 +290,14 @@ export const PRODUCT_TAXONOMY: ProductCategory[] = [
     ],
   },
 ];
+
+export const PRODUCT_TAXONOMY: ProductCategory[] = RAW_PRODUCT_TAXONOMY.map((cat) => ({
+  ...cat,
+  subcategories: cat.subcategories.map((sub) => ({
+    ...sub,
+    img: cat.img, // Inherit the parent category image!
+  })),
+}));
 
 /* ─── Lookup helpers ────────────────────────────────────────────── */
 
