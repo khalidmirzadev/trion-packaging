@@ -30,12 +30,12 @@ export interface ProductCategory {
 
 /* ─── Image shorthand ─────────────────────────────────────────────*/
 const IMG = {
-  custom:      "/images/products/custom_box.png",
-  mailer:      "/images/products/mailer_box.png",
-  corrugated:  "/images/products/corrugated_box.png",
-  folding:     "/images/products/folding_carton.png",
-  rigid:       "/images/products/rigid_box.png",
-  cosmetic:    "/images/products/cosmetic_box.png",
+  custom:      "/images/products/custom_box.webp",
+  mailer:      "/images/products/mailer_box.webp",
+  corrugated:  "/images/products/corrugated_box.webp",
+  folding:     "/images/products/folding_carton.webp",
+  rigid:       "/images/products/rigid_box.webp",
+  cosmetic:    "/images/products/cosmetic_box.webp",
   placeholder: "/images/products/placeholder_packaging.png",
   hero:        "/images/products/hero_packaging.png",
 };

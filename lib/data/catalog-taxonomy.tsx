@@ -762,38 +762,63 @@ const RAW_INDUSTRY_TAXONOMY: ProductCategory[] = [
   },
 ];
 
+const MATERIALS_IMAGES: Record<string, string> = {
+  cardboard: "/images/materials/cardboard_boxes.webp",
+  corrugated: "/images/materials/corrugated_boxes.webp",
+  rigid: "/images/materials/rigid_board.webp",
+  kraft: "/images/materials/kraft_packaging.webp",
+};
+
+const STYLES_IMAGES: Record<string, string> = {
+  "tuck-boxes": "/images/styles/tuck_boxes.webp",
+  "display-boxes": "/images/styles/display_boxes.webp",
+  "window-packaging": "/images/styles/window_boxes.webp",
+  "mylar-bags": "/images/styles/mylar_bags.webp",
+};
+
+const INDUSTRIES_IMAGES: Record<string, string> = {
+  apparel: "/images/industries/apparel_packaging.webp",
+  cosmetic: "/images/industries/cosmetic_packaging.webp",
+  food: "/images/industries/food_packaging.webp",
+  chocolate: "/images/industries/chocolate_packaging.webp",
+  retail: "/images/industries/retail_packaging.webp",
+};
+
 export const MATERIAL_TAXONOMY: ProductCategory[] = RAW_MATERIAL_TAXONOMY.map((cat) => {
-  const catImg = cat.img.replace("/images/", "/images/materials/");
+  const catImg = MATERIALS_IMAGES[cat.slug] || cat.img.replace("/images/", "/images/materials/");
+  const catImgWebp = catImg.endsWith(".png") ? catImg.replace(".png", ".webp") : catImg;
   return {
     ...cat,
-    img: catImg,
+    img: catImgWebp,
     subcategories: cat.subcategories.map((sub) => ({
       ...sub,
-      img: catImg, // Inherit parent category image
+      img: catImgWebp, // Inherit parent category image
     })),
   };
 });
 
 export const STYLE_TAXONOMY: ProductCategory[] = RAW_STYLE_TAXONOMY.map((cat) => {
-  const catImg = cat.img.replace("/images/", "/images/styles/");
+  const catImg = STYLES_IMAGES[cat.slug] || cat.img.replace("/images/", "/images/styles/");
+  const catImgWebp = catImg.endsWith(".png") ? catImg.replace(".png", ".webp") : catImg;
   return {
     ...cat,
-    img: catImg,
+    img: catImgWebp,
     subcategories: cat.subcategories.map((sub) => ({
       ...sub,
-      img: catImg, // Inherit parent category image
+      img: catImgWebp, // Inherit parent category image
     })),
   };
 });
 
 export const INDUSTRY_TAXONOMY: ProductCategory[] = RAW_INDUSTRY_TAXONOMY.map((cat) => {
-  const catImg = cat.img.replace("/images/", "/images/industries/");
+  const catImg = INDUSTRIES_IMAGES[cat.slug] || cat.img.replace("/images/", "/images/industries/");
+  const catImgWebp = catImg.endsWith(".png") ? catImg.replace(".png", ".webp") : catImg;
   return {
     ...cat,
-    img: catImg,
+    img: catImgWebp,
     subcategories: cat.subcategories.map((sub) => ({
       ...sub,
-      img: catImg, // Inherit parent category image
+      img: catImgWebp, // Inherit parent category image
     })),
   };
 });
